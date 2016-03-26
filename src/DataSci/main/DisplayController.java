@@ -241,8 +241,6 @@ public class DisplayController {
     }
 
     public void initiateGraph(){
-    	System.out.println("DEBUG GRAPH");
-        growthChart.setTitle("Forecasted Resale Price");
         growthChart.getData().add(series);
     }
     

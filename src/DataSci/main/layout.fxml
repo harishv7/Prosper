@@ -228,24 +228,40 @@
             </VBox>
             <VBox HBox.hgrow="ALWAYS">
                <children>
-                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" minHeight="-Infinity" prefHeight="41.0" prefWidth="200.0" spacing="10.0" VBox.vgrow="NEVER">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Expected Growth per Annum" HBox.hgrow="ALWAYS" />
-                        <TextField alignment="CENTER" minWidth="-Infinity" prefWidth="50.0" HBox.hgrow="NEVER" />
+                        <TextField fx:id="growthRate" alignment="CENTER" minWidth="-Infinity" prefWidth="40.0" HBox.hgrow="NEVER" />
+                        <Text layoutX="40.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="41.0" VBox.vgrow="NEVER">
+                     <children>
+                        <Button fx:id="analyzeButton" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseReleased="#handleSubmitEvent" prefHeight="31.0" prefWidth="265.0" text="Analyse" textAlignment="CENTER" />
                      </children>
                   </HBox>
                   <VBox VBox.vgrow="ALWAYS">
                      <children>
-                        <LineChart fx:id="growthChart" alternativeColumnFillVisible="true" focusTraversable="true" horizontalZeroLineVisible="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="290.0" prefWidth="290.0" verticalZeroLineVisible="false" VBox.vgrow="NEVER">
+                        <LineChart fx:id="growthChart" alternativeColumnFillVisible="true" focusTraversable="true" horizontalZeroLineVisible="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="290.0" title="Forecasted Resale Price" verticalZeroLineVisible="false" VBox.vgrow="NEVER">
                           <xAxis>
-                          	<NumberAxis label="Year"></NumberAxis>
+                          	<NumberAxis forceZeroInRange="false" label="Year" lowerBound="2000.0" minHeight="-Infinity" minorTickCount="0" minorTickVisible="false" prefHeight="50.0" upperBound="2020.0" />
                           </xAxis>
                           <yAxis>
-                            <NumberAxis label="Price"></NumberAxis>
+                            <NumberAxis minWidth="-Infinity" prefWidth="20.0" upperBound="1000.0" />
                           </yAxis>
                         </LineChart>
                      </children>
                   </VBox>
+                  <HBox prefHeight="30.0" prefWidth="200.0" VBox.vgrow="NEVER">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Analysis" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="402.0" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <TextArea fx:id="analysisArea" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </children>
