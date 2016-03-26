@@ -241,7 +241,7 @@
                   </HBox>
                   <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="41.0" VBox.vgrow="NEVER">
                      <children>
-                        <Button fx:id="analyseButton" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="31.0" prefWidth="265.0" styleClass="analyseButton" text="Analyse" textAlignment="CENTER">
+                        <Button fx:id="analyseButton" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseReleased="#handleAnalyseGrowth" prefHeight="31.0" prefWidth="265.0" styleClass="analyseButton" text="Analyse" textAlignment="CENTER">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets></Button>
