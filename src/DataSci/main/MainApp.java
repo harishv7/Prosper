@@ -1,18 +1,12 @@
 package DataSci.main;
 
 import java.io.IOException;
-import java.util.logging.FileHandler;
-import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
 
 import javafx.animation.FadeTransition;
-import javafx.animation.PauseTransition;
-import javafx.animation.SequentialTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -25,6 +19,13 @@ public class MainApp extends Application {
     private static final String PATH_STYLESHEET = "view/style.css";
 
     private static final String PATH_FXML = "layout.fxml";
+
+    // Opacities for Fade Animation
+    private static final double OPACITY_FULL = 1.0;
+    private static final double OPACITY_ZERO = 0.0;
+
+    // Duration for Fade Animations
+    private static final int FADE_DURATION = 1500;
 
 
     private DisplayController displayController;
@@ -41,7 +42,7 @@ public class MainApp extends Application {
     }
 
     @Override
-    public void start(Stage stage) {		
+    public void start(Stage stage) throws IOException {		
         primaryStage = stage;
         setUpPrimaryStage();		
     }
@@ -50,26 +51,22 @@ public class MainApp extends Application {
         //scene.getStylesheets().add(getClass().getResource(PATH_STYLESHEET).toExternalForm());
     }
 
-    private void setUpPrimaryStage() {
-        try {
-            parent = FXMLLoader.load(getClass().getResource(PATH_FXML));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        scene = new Scene(parent);
-        loadStylesheet();
+    private void setUpPrimaryStage() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(PATH_FXML));
+        main = (AnchorPane) loader.load();
 
-        primaryStage.setTitle(STAGE_TITLE);
-//        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream(PATH_FINI_ICON)));
+        Scene scene = new Scene(main);
+        //scene.getStylesheets().add(getClass().getResource(PATH_STYLESHEET).toExternalForm());
+
+        fadeIn(main);
         primaryStage.setScene(scene);
-        primaryStage.setResizable(false);
+
+        displayController = loader.getController();
+
         primaryStage.show();
+        primaryStage.setResizable(false);
+
     }
-    
-    /*
-     * This method transits Fini from the Welcome Scene to the main display
-     * of tasks. It loads the respective FXML and employs a fade transition.
-     */
     
 
 //    private void fadeOut(Node element) {
@@ -79,12 +76,12 @@ public class MainApp extends Application {
 //        fadeOut.play();
 //    }
 //
-//    private void fadeIn(Node element) {
-//        FadeTransition fadeIn = new FadeTransition(Duration.millis(FADE_DURATION), element);
-//        fadeIn.setFromValue(OPACITY_ZERO);
-//        fadeIn.setToValue(OPACITY_FULL);
-//        fadeIn.play();
-//    }
+    private void fadeIn(Node element) {
+        FadeTransition fadeIn = new FadeTransition(Duration.millis(FADE_DURATION), element);
+        fadeIn.setFromValue(OPACITY_ZERO);
+        fadeIn.setToValue(OPACITY_FULL);
+        fadeIn.play();
+    }
 //    
 //    // @@author A0121298E
 //    private void initializeBrain() {
