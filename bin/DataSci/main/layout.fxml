@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.paint.*?>
@@ -23,7 +24,7 @@
    <children>
       <HBox alignment="TOP_CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="48.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" VBox.vgrow="NEVER">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="FlatTycoon" textAlignment="CENTER" wrappingWidth="799.6774749755859" HBox.hgrow="ALWAYS">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="analyseButton" text="FlatTycoon" textAlignment="CENTER" wrappingWidth="799.6774749755859" HBox.hgrow="ALWAYS">
                <font>
                   <Font size="36.0" />
                </font>
@@ -32,7 +33,10 @@
       </HBox>
       <HBox alignment="CENTER" minHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" VBox.vgrow="NEVER">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Credits: The Digital Catalyst" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="477.7454528808594" HBox.hgrow="ALWAYS" />
+            <Text fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="© The Digital Catalyst | 2016 " textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="477.7454528808594" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="Source Sans Pro Light" size="13.0" />
+               </font></Text>
          </children>
       </HBox>
       <HBox alignment="TOP_CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="10.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" VBox.vgrow="NEVER">
@@ -71,13 +75,13 @@
                               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" HBox.hgrow="ALWAYS">
                                  <children>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Year" />
-                                    <TextField fx:id="yearInput" />
+                                    <TextField fx:id="yearInput" opacity="0.7" styleClass="yearField" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" HBox.hgrow="ALWAYS">
                                  <children>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Month" />
-                                    <TextField fx:id="monthInput" />
+                                    <TextField fx:id="monthInput" opacity="0.7" styleClass="monthField" />
                                  </children>
                               </HBox>
                            </children>
@@ -94,7 +98,7 @@
                               </HBox>
                               <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" spacing="10.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <ComboBox fx:id="regionInput" layoutX="10.0" layoutY="15.0" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+                                    <ComboBox fx:id="regionInput" layoutX="10.0" layoutY="15.0" maxWidth="1.7976931348623157E308" opacity="0.7" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
                            </children>
@@ -111,7 +115,7 @@
                               </HBox>
                               <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <ComboBox fx:id="flatTypeInput" layoutX="10.0" layoutY="15.0" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+                                    <ComboBox fx:id="flatTypeInput" layoutX="10.0" layoutY="15.0" maxWidth="1.7976931348623157E308" opacity="0.7" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
                            </children>
@@ -128,7 +132,7 @@
                               </HBox>
                               <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <ComboBox fx:id="flatModelInput" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+                                    <ComboBox fx:id="flatModelInput" maxWidth="1.7976931348623157E308" opacity="0.7" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
                            </children>
@@ -145,7 +149,7 @@
                               </HBox>
                               <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <TextField fx:id="flatAreaInput" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+                                    <TextField fx:id="flatAreaInput" maxWidth="1.7976931348623157E308" opacity="0.7" styleClass="flatArea" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="10.0" maxWidth="-Infinity" prefHeight="100.0" prefWidth="50.0">
@@ -170,7 +174,7 @@
                               </HBox>
                               <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <TextField fx:id="leaseCommencementInput" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+                                    <TextField fx:id="leaseCommencementInput" maxWidth="1.7976931348623157E308" opacity="0.7" styleClass="leaseCommencementDate" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
                            </children>
@@ -203,7 +207,7 @@
                            <children>
                               <Text fill="#000000b2" strokeType="OUTSIDE" strokeWidth="0.0" text="S$" textAlignment="CENTER" HBox.hgrow="NEVER">
                                  <font>
-                                    <Font name="System Bold" size="55.0" />
+                                    <Font name="Source Sans Pro Light" size="55.0" />
                                  </font>
                               </Text>
                               <Label fx:id="futurePrice" alignment="CENTER" contentDisplay="CENTER" minWidth="-Infinity" prefWidth="300.0" textAlignment="CENTER" textFill="#000000b2" HBox.hgrow="ALWAYS">
@@ -237,7 +241,10 @@
                   </HBox>
                   <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="41.0" VBox.vgrow="NEVER">
                      <children>
-                        <Button fx:id="analyseButton" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseReleased="#handleSubmitEvent" prefHeight="31.0" prefWidth="265.0" text="Analyse" textAlignment="CENTER" />
+                        <Button fx:id="analyseButton" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseReleased="#handleSubmitEvent" prefHeight="31.0" prefWidth="265.0" styleClass="analyseButton" text="Analyse" textAlignment="CENTER">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets></Button>
                      </children>
                   </HBox>
                   <VBox VBox.vgrow="ALWAYS">
