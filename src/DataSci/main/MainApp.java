@@ -7,7 +7,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -53,21 +52,20 @@ public class MainApp extends Application {
     }
 
     private void setUpPrimaryStage() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(PATH_FXML));
-        main = (GridPane) loader.load();
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource(PATH_FXML));
+    	main = (GridPane) loader.load();
 
-        Scene scene = new Scene(main);
-        // scene.getStylesheets().add(getClass().getResource(PATH_STYLESHEET).toExternalForm());
+    	Scene scene = new Scene(main);
+    	// scene.getStylesheets().add(getClass().getResource(PATH_STYLESHEET).toExternalForm());
 
-        fadeIn(main);
-        primaryStage.setScene(scene);
+    	fadeIn(main);
 
-         displayController = loader.getController();
-//        displayController = new DisplayController();
-         displayController.initialiseAll();
-        primaryStage.show();
-        primaryStage.setResizable(false);
-
+    	displayController = loader.getController();
+    	displayController.initialiseAll();
+    	displayController.initiateGraph();
+    	primaryStage.setScene(scene);
+    	primaryStage.show();
+    	primaryStage.setResizable(false);
     }
     
 

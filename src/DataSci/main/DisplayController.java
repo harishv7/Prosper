@@ -5,11 +5,16 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.util.ArrayList;
 
+import javafx.application.Application;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -45,6 +50,10 @@ public class DisplayController {
     @FXML
     private Button submitButton;
     
+    @FXML
+    private LineChart<Number, Number> growthChart;
+
+    private XYChart.Series<Number, Number> series = new XYChart.Series<Number, Number>();
     
     private ObservableList<String> regionInputChoices = FXCollections.observableArrayList();
     private ObservableList<String> flatTypeInputChoices = FXCollections.observableArrayList();
@@ -231,10 +240,20 @@ public class DisplayController {
         System.out.println("MOUSE");
     }
 
+    public void initiateGraph(){
+    	System.out.println("DEBUG GRAPH");
+        growthChart.setTitle("Forecasted Resale Price");
+        growthChart.getData().add(series);
+    }
+    
     public void initialiseAll() {
         System.out.println("INIT");
         regionInput.setItems(regionInputChoices);
         flatModelInput.setItems(flatModelInputChoices);
         flatTypeInput.setItems(flatTypeInputChoices);
+    }
+    
+    public void addData(Number x, Number y) {
+    	series.getData().add(new XYChart.Data<Number, Number>(x, y));
     }
 }

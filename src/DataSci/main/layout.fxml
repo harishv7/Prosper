@@ -9,7 +9,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DataSci.main.DisplayController">
+<GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DataSci.main.DisplayController">
    <columnConstraints>
       <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="-Infinity" prefWidth="480.0" />
    </columnConstraints>
@@ -236,12 +236,12 @@
                   </HBox>
                   <VBox VBox.vgrow="ALWAYS">
                      <children>
-                        <LineChart alternativeColumnFillVisible="true" minHeight="-Infinity" minWidth="-Infinity" prefHeight="290.0" prefWidth="290.0" title="Hello" VBox.vgrow="NEVER">
+                        <LineChart fx:id="growthChart" alternativeColumnFillVisible="true" focusTraversable="true" horizontalZeroLineVisible="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="290.0" prefWidth="290.0" verticalZeroLineVisible="false" VBox.vgrow="NEVER">
                           <xAxis>
-                            <CategoryAxis side="BOTTOM" />
+                          	<NumberAxis label="Year"></NumberAxis>
                           </xAxis>
                           <yAxis>
-                            <NumberAxis side="LEFT" />
+                            <NumberAxis label="Price"></NumberAxis>
                           </yAxis>
                         </LineChart>
                      </children>
