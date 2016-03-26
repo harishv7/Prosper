@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -31,8 +32,8 @@ public class MainApp extends Application {
     private DisplayController displayController;
     private Stage primaryStage;
     private static Scene scene;
-    private AnchorPane parent = null;
-    private AnchorPane main = null;
+    private GridPane parent = null;
+    private GridPane main = null;
 
     /* ***********************************
      * METHODS
@@ -53,7 +54,7 @@ public class MainApp extends Application {
 
     private void setUpPrimaryStage() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(PATH_FXML));
-        main = (AnchorPane) loader.load();
+        main = (GridPane) loader.load();
 
         Scene scene = new Scene(main);
         // scene.getStylesheets().add(getClass().getResource(PATH_STYLESHEET).toExternalForm());

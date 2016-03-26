@@ -1,2 +1,2 @@
-https://ussouthcentral.services.azureml.net/workspaces/13aa607b8c614bc99a4768efb4c7fda2/services/935a698dd2fa47edb09466efe4c274dc/execute?api-version=2.0&details=true
-kCz11KLq8ysX4lvorPPyZXEPyG/j8en6yRdxzMMUq5jF6CZ4l3RjQN3ZWxzE7ZSQIR4zlgIQb8jyf3ewXjAm0g==
+https://ussouthcentral.services.azureml.net/workspaces/13aa607b8c614bc99a4768efb4c7fda2/services/b2cbcb29d241450a837b7cb4b8530465/execute?api-version=2.0&details=true
+5PDRt/28kaDGdbbYMNBVcws2daoa01LiynY9S33eW6uQc93jiSvqgj6dzpWszs6/oP8kozd3kmtoE+pboZ+cjw==

@@ -17,12 +17,12 @@ public class Parameters {
 		this.yearMonth = year + "-" + String.format("%02d", month);
 		this.year = year;
 		this.month = month;
-		this.normalizedYearMonth = (year - 2000) * 12 + month;
+		this.normalizedYearMonth = (year - 1950) * 12 + month;
 		this.region = region;
 		this.flatType = flatType;
 		this.floorArea = floorArea;
 		this.flatModel = flatModel;
-		this.leaseCommenceYear = leaseCommenceYear;
+		this.leaseCommenceYear = (leaseCommenceYear - 1950) * 12 + 1;
 		this.resalePrice = 0;
 	}
 	

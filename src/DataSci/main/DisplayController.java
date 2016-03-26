@@ -1,10 +1,18 @@
 package DataSci.main;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
@@ -30,6 +38,9 @@ public class DisplayController {
     
     @FXML
     private TextField leaseCommencementInput;
+    
+    @FXML
+    private Label futurePrice;
     
     @FXML
     private Button submitButton;
@@ -64,8 +75,7 @@ public class DisplayController {
                 "2-room",
                 "DBSS",
                 "Type S1",
-                "Type S2",
-                "na"
+                "Type S2"
                 );
     }
 
@@ -111,28 +121,96 @@ public class DisplayController {
     }
 
     @FXML
-    public void handleSubmitEvent(MouseEvent event) throws Exception {
-        getAllParams();
+    public void handleSubmitEvent(MouseEvent event) throws IOException {
+        Parameters parameters = getAllParams();
+        JsonRequestResponseParser jsonRequestResponseParser = new JsonRequestResponseParser();
+        
+        String jsonString = jsonRequestResponseParser.parseInputParameters(parameters);
+        
+        System.out.println(jsonString);
+        
+        File file = new File("jsonFile.json");
+        file.createNewFile();
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
+        bufferedWriter.write(jsonString);
+        
+        bufferedWriter.close();
+        
+        JsonRequestResponseController jsonController = new JsonRequestResponseController();
+        jsonController.readJson(file.getName());
+        
+        System.out.println("Controller works");
+        
+        jsonController.readApiInfo("apiInfo.txt");
+        
+        String response = jsonController.rrsHttpPost();
+        
+        System.out.println(response);
+        
+        String substr1 = response.substring(0, response.lastIndexOf("\""));
+        String substr2 = substr1.substring(substr1.lastIndexOf("\"") + 1);
+        
+        System.out.println(substr2);
+
+        int price = (int) Double.parseDouble(substr2);
+        System.out.println(price);
+        
+        futurePrice.setText(Integer.toString(price));
     }
     
-    private void getAllParams() {
+    private Parameters getAllParams() {
         String yearStr = yearInput.getText();
-        int year = Integer.parseInt(yearStr);
+        int year;
+        if (yearStr == null || yearStr.equals("")) {
+            yearStr = "";
+            year = 0;
+        } else {
+            year = Integer.parseInt(yearStr);
+        }
         
         String monthStr = monthInput.getText();
-        int month = Integer.parseInt(monthStr);
+        int month;
+        if (monthStr == null || monthStr.equals("")) {
+            monthStr = "";
+            month = 0;
+        } else {
+            month = Integer.parseInt(monthStr);
+        }
         
         String region = regionInput.getValue();
+        if (region == null) {
+            region = "";
+        }
+        region = region.toUpperCase();
         
         String flatType = flatTypeInput.getValue();
+        if (flatType == null) {
+            flatType = "";
+        }
+        flatType = flatType.toUpperCase();
         
         String flatModel = flatModelInput.getValue();
+        if (flatModel == null) {
+            flatModel = "";
+        }
         
         String flatAreaStr = flatAreaInput.getText();
-        int flatArea = Integer.parseInt(flatAreaStr);
+        int flatArea;
+        if (flatAreaStr == null || flatAreaStr.equals("")) {
+            flatAreaStr = "";
+            flatArea = 0;
+        } else {
+            flatArea = Integer.parseInt(flatAreaStr);
+        }
         
         String leaseCommencementDateStr = leaseCommencementInput.getText();
-        int leaseCommencementYear = Integer.parseInt(leaseCommencementDateStr);
+        int leaseCommencementYear;
+        if (leaseCommencementDateStr == null || leaseCommencementDateStr.equals("")) {
+            leaseCommencementDateStr = "";
+            leaseCommencementYear = 0;
+        } else {
+            leaseCommencementYear = Integer.parseInt(leaseCommencementDateStr);
+        }
         
         System.out.println("Year: " + yearStr);
         System.out.println("month: " + monthStr);
@@ -141,6 +219,11 @@ public class DisplayController {
         System.out.println("flat model: " + flatModel);
         System.out.println("flat area: " + flatArea);
         System.out.println("LCY: " + leaseCommencementYear);
+        
+        Parameters parameters = new Parameters(year, month, region, flatType, 
+                flatArea, flatModel, leaseCommencementYear);
+        
+        return parameters;
     }
 
     @FXML

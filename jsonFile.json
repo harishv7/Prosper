@@ -1,0 +1,1 @@
+{"Inputs": {"input1": {"ColumnNames": ["ym", "year", "month", "normalized_month", "town", "flat_type", "floor_area_sqm", "flat_model", "lease_commence_date", "normalized_lease_commence_date", "resale_price"],"Values": [["2000-01", "0", "0", "733", "BEDOK", "2 ROOM", "122", "Model A", "0", "613", "0"]]}}, "GlobalParameters": {}}

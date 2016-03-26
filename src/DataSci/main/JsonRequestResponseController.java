@@ -14,18 +14,18 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.*;
 
 
-public class JsonScript {
-	// public static JSONObject inpParms;
-	public static String apikey;
-	public static String apiurl;
-	public static String jsonBody;
+public class JsonRequestResponseController {
+	// public JSONObject inpParms;
+	public String apikey;
+	public String apiurl;
+	public String jsonBody;
 
 	/**
 	 * Read the JSON schema from the file rrsJson.json
 	 * 
 	 * @param filename It expects a fully qualified file name that contains input JSON file
 	 */		
-	public static void readJson(String filename) {
+	public void readJson(String filename) {
 		try {
 			File apiFile = new File(filename);
 			Scanner sc = new Scanner(apiFile);
@@ -36,7 +36,7 @@ public class JsonScript {
 			sc.close();
 		}
 		catch (Exception e){
-			System.out.println(e.toString());
+			e.printStackTrace();
 		}
 	}
 
@@ -45,7 +45,7 @@ public class JsonScript {
 	 * 
 	 * @param filename fully qualified file name that contains API key and API URL
 	 */	
-	public static void readApiInfo(String filename) {
+	public void readApiInfo(String filename) {
 
 		try {
 			File apiFile = new File(filename);
@@ -57,7 +57,7 @@ public class JsonScript {
 			sc.close();
 		}
 		catch (Exception e){
-			System.out.println(e.toString());
+			e.printStackTrace();
 		}
 
 	}
@@ -66,7 +66,7 @@ public class JsonScript {
 	 * Call REST API for retrieving prediction from Azure ML 
 	 * @return response from the REST API
 	 */	
-	public static String rrsHttpPost() {
+	public String rrsHttpPost() {
 
 		HttpPost post;
 		HttpClient client;
@@ -107,7 +107,7 @@ public class JsonScript {
 	/**
 	 * @param args the command line arguments specifying JSON and API info file names
 	 */
-	public static void main(String[] args) {
+	public void main(String[] args) {
 		// check for mandatory arguments. This program expects 2 arguments 
 		// first argument is full path with file name of JSON file and 
 		// second argument is full path with file name of API file that contains API URL and API Key of request response REST API
