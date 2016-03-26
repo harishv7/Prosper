@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -21,7 +22,7 @@
                         </Text>
                      </children>
                   </VBox>
-                  <VBox prefHeight="400.0" prefWidth="100.0">
+                  <VBox prefHeight="350.0" prefWidth="100.0">
                      <children>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
@@ -46,43 +47,92 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Region" />
-                              <ChoiceBox prefWidth="150.0" />
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Region" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <ChoiceBox prefWidth="150.0" />
+                                 </children>
+                              </HBox>
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Flat Type" />
-                              <ChoiceBox prefWidth="150.0" />
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Flat Type" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <ChoiceBox prefWidth="150.0" />
+                                 </children>
+                              </HBox>
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Flat Model" />
-                              <ChoiceBox prefWidth="150.0" />
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Flat Model" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <ChoiceBox prefWidth="150.0" />
+                                 </children>
+                              </HBox>
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Flat Area (Sq m)" />
-                              <TextField />
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Flat Area (Sq m)" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField />
+                                 </children>
+                              </HBox>
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lease Commencement" />
-                              <TextField />
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lease Commencement" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField />
+                                 </children>
+                              </HBox>
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Submit" />
+                              <Button alignment="CENTER" mnemonicParsing="false" prefHeight="70.0" prefWidth="481.0" text="Submit" textAlignment="CENTER" />
                            </children>
                         </HBox>
                      </children>
                   </VBox>
-                  <VBox prefHeight="100.0" prefWidth="100.0" />
-                  <VBox prefHeight="10.0" prefWidth="100.0" />
+                  <VBox prefHeight="191.0" prefWidth="480.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Predicted Property Value:" wrappingWidth="478.4207191467285" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="478.42071533203125" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="27.0" prefWidth="480.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Credits: CHAI" wrappingWidth="477.7454528808594" />
+                     </children>
+                  </VBox>
                </children>
             </VBox>
             <VBox prefHeight="600.0" prefWidth="320.0">
