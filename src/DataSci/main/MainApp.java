@@ -48,7 +48,7 @@ public class MainApp extends Application {
     }
 
     private void loadStylesheet() {
-        //scene.getStylesheets().add(getClass().getResource(PATH_STYLESHEET).toExternalForm());
+        // scene.getStylesheets().add(getClass().getResource(PATH_STYLESHEET).toExternalForm());
     }
 
     private void setUpPrimaryStage() throws IOException {
@@ -56,13 +56,14 @@ public class MainApp extends Application {
         main = (AnchorPane) loader.load();
 
         Scene scene = new Scene(main);
-        //scene.getStylesheets().add(getClass().getResource(PATH_STYLESHEET).toExternalForm());
+        // scene.getStylesheets().add(getClass().getResource(PATH_STYLESHEET).toExternalForm());
 
         fadeIn(main);
         primaryStage.setScene(scene);
 
-        displayController = loader.getController();
-
+         displayController = loader.getController();
+//        displayController = new DisplayController();
+         displayController.initialiseAll();
         primaryStage.show();
         primaryStage.setResizable(false);
 
