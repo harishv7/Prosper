@@ -62,7 +62,7 @@ public class MainApp extends Application {
 
     	displayController = loader.getController();
     	displayController.initialiseAll();
-    	displayController.initiateGraph();
+//    	displayController.initiateGraph();
     	primaryStage.setScene(scene);
     	primaryStage.show();
     	primaryStage.setResizable(false);

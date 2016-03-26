@@ -9,7 +9,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DataSci.main.DisplayController">
+<GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="container" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DataSci.main.DisplayController">
    <columnConstraints>
       <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="-Infinity" prefWidth="480.0" />
    </columnConstraints>
@@ -32,7 +32,7 @@
       </HBox>
       <HBox alignment="CENTER" minHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="28.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" VBox.vgrow="NEVER">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Credits: CHAI" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="477.7454528808594" HBox.hgrow="ALWAYS" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Credits: The Digital Catalyst" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="477.7454528808594" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
       <HBox alignment="TOP_CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="10.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" VBox.vgrow="NEVER">
@@ -237,7 +237,7 @@
                   </HBox>
                   <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="41.0" VBox.vgrow="NEVER">
                      <children>
-                        <Button fx:id="analyzeButton" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseReleased="#handleSubmitEvent" prefHeight="31.0" prefWidth="265.0" text="Analyse" textAlignment="CENTER" />
+                        <Button fx:id="analyseButton" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseReleased="#handleSubmitEvent" prefHeight="31.0" prefWidth="265.0" text="Analyse" textAlignment="CENTER" />
                      </children>
                   </HBox>
                   <VBox VBox.vgrow="ALWAYS">
@@ -259,7 +259,11 @@
                   </HBox>
                   <HBox layoutX="10.0" layoutY="402.0" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <TextArea fx:id="analysisArea" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                        <Label fx:id="analysisArea" alignment="TOP_LEFT" prefHeight="79.0" prefWidth="307.0" HBox.hgrow="ALWAYS">
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </Label>
                      </children>
                   </HBox>
                </children>

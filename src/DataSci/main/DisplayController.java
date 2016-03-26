@@ -4,20 +4,16 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Writer;
-import java.util.ArrayList;
 
-import javafx.application.Application;
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
@@ -52,6 +48,15 @@ public class DisplayController {
     
     @FXML
     private LineChart<Number, Number> growthChart;
+    
+    @FXML
+    private TextField growthRate;
+    
+    @FXML
+    private Button analyseButton;
+    
+    @FXML
+    private Label analysisArea;
 
     private XYChart.Series<Number, Number> series = new XYChart.Series<Number, Number>();
     
@@ -127,6 +132,13 @@ public class DisplayController {
                 "Sembawang",
                 "Punggol"  
                 );    
+    }
+    
+    @FXML
+    public void handleAnalyseGrowth(MouseEvent event) {
+        Parameters parameters = getAllParams();
+        String growthRateStr = growthRate.getText();
+        Double growthRate = Double.parseDouble(growthRateStr);
     }
 
     @FXML
@@ -233,11 +245,6 @@ public class DisplayController {
                 flatArea, flatModel, leaseCommencementYear);
         
         return parameters;
-    }
-
-    @FXML
-    public void mouseClicked() {
-        System.out.println("MOUSE");
     }
 
     public void initiateGraph(){
