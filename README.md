@@ -8,7 +8,7 @@ We have combined the power of Mircosoft Azure's Machine Learning capabilities to
 
 As a pro analytics feature, Prosper also provides a suggestion on when you should be selling your flat based on your expected annual growth rate of the flat price. Hence, the application tries to maximise your expectations on your current property value and growth.
 
-This application runs using Java and you can download it from the [Releases](https://github.com/harishv7/FlatTycoon/releases) page. 
+This application runs using Java and you can download it from the [Releases](https://github.com/harishv7/Prosper/releases) page. 
 
 Prosper was developed in *24 hours* in the National University of Singapore (NUS) Data Science Student Challenge supported by Mircosoft.
 
