@@ -198,16 +198,16 @@
                            <children>
                               <Text fill="#000000cc" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Predicted Resale Property Value" textAlignment="CENTER" wrappingWidth="478.4207191467285">
                                  <font>
-                                    <Font size="20.0" />
+                                    <Font name="Open Sans Light" size="20.0" />
                                  </font>
                               </Text>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="80.0" prefWidth="200.0" spacing="10.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Text fill="#000000b2" strokeType="OUTSIDE" strokeWidth="0.0" text="S$" textAlignment="CENTER" HBox.hgrow="NEVER">
+                              <Text fill="#000000b2" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="S$" textAlignment="CENTER" HBox.hgrow="NEVER">
                                  <font>
-                                    <Font name="Source Sans Pro Light" size="55.0" />
+                                    <Font name="Open Sans Light" size="55.0" />
                                  </font>
                               </Text>
                               <Label fx:id="futurePrice" alignment="CENTER" contentDisplay="CENTER" minWidth="-Infinity" prefWidth="300.0" textAlignment="CENTER" textFill="#000000b2" HBox.hgrow="ALWAYS">
@@ -241,7 +241,7 @@
                   </HBox>
                   <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="41.0" VBox.vgrow="NEVER">
                      <children>
-                        <Button fx:id="analyseButton" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseReleased="#handleSubmitEvent" prefHeight="31.0" prefWidth="265.0" styleClass="analyseButton" text="Analyse" textAlignment="CENTER">
+                        <Button fx:id="analyseButton" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseReleased="#handleAnalyseGrowth" prefHeight="31.0" prefWidth="265.0" styleClass="analyseButton" text="Analyse" textAlignment="CENTER">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets></Button>

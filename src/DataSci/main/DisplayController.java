@@ -135,20 +135,64 @@ public class DisplayController {
     }
     
     @FXML
-    public void handleAnalyseGrowth(MouseEvent event) {
+    public void handleAnalyseGrowth(MouseEvent event) throws IOException {
+    	series = new XYChart.Series<Number, Number>();
+    	growthChart.getData().clear();
+    	
         Parameters parameters = getAllParams();
         String growthRateStr = growthRate.getText();
         Double growthRate = Double.parseDouble(growthRateStr);
+        double monthlyGrowthRate = Math.pow(growthRate + 1, 1.0 / 12) - 1.0;
+        
+        int minPrice = 99999999;
+        int maxPrice = 0;
+        int maxYear = 0;
+        
+        int initialNormalizedYearMonth = parameters.getNormalizedYearMonth();
+        int currentNormalizedYearMonth = initialNormalizedYearMonth;
+        int initialPrice = getPredictedPrice(parameters);
+        minPrice = Math.min(minPrice, initialPrice);
+        maxPrice = Math.max(maxPrice, initialPrice);
+        maxYear = Math.max(maxYear, initialNormalizedYearMonth);
+        
+        addData(parameters.getNormalizedYearMonth() - initialNormalizedYearMonth, initialPrice);
+        System.out.println("HERE");
+        int monthIncrement = 60;
+        
+        final int NUM_ITERATIONS = 4;
+        
+        for (int i = 0; i < NUM_ITERATIONS; i++) {
+        	System.out.println("ITERATION " + i);
+        	currentNormalizedYearMonth += monthIncrement;
+        	parameters.setNormalizedYearMonth(currentNormalizedYearMonth);
+        	parameters.setYear(currentNormalizedYearMonth / 12 + 1950);
+        	parameters.setMonth(currentNormalizedYearMonth % 12);
+        	int currentPrice = getPredictedPrice(parameters);
+        	minPrice = Math.min(minPrice, currentPrice);
+        	maxPrice = Math.min(maxPrice, currentPrice);
+        	maxYear = Math.max(maxYear, currentNormalizedYearMonth / 12);
+        	if (currentPrice < initialPrice * Math.pow(1 + monthlyGrowthRate, 
+        			currentNormalizedYearMonth - initialNormalizedYearMonth)) {
+        		monthIncrement = - Math.abs(monthIncrement / 2);
+        	} else {
+        		monthIncrement = Math.abs(monthIncrement / 2);
+        	}
+        	addData(parameters.getNormalizedYearMonth() - initialNormalizedYearMonth, currentPrice);
+        }
+        growthChart.getYAxis().setMaxHeight(maxPrice - minPrice + 50000);
+        growthChart.getXAxis().setMaxWidth(maxYear - initialNormalizedYearMonth + 6);
+        analysisArea.setText("You are recommended to sell the flat on month " + parameters.getMonth() + " year " + parameters.getYear());
     }
 
     @FXML
     public void handleSubmitEvent(MouseEvent event) throws IOException {
         Parameters parameters = getAllParams();
-        JsonRequestResponseParser jsonRequestResponseParser = new JsonRequestResponseParser();
-        
+        futurePrice.setText(Integer.toString(getPredictedPrice(parameters)));
+    }
+    
+    private int getPredictedPrice(Parameters parameters) throws IOException {
+    	JsonRequestResponseParser jsonRequestResponseParser = new JsonRequestResponseParser();
         String jsonString = jsonRequestResponseParser.parseInputParameters(parameters);
-        
-        System.out.println(jsonString);
         
         File file = new File("jsonFile.json");
         file.createNewFile();
@@ -160,23 +204,15 @@ public class DisplayController {
         JsonRequestResponseController jsonController = new JsonRequestResponseController();
         jsonController.readJson(file.getName());
         
-        System.out.println("Controller works");
-        
         jsonController.readApiInfo("apiInfo.txt");
         
         String response = jsonController.rrsHttpPost();
         
-        System.out.println(response);
-        
         String substr1 = response.substring(0, response.lastIndexOf("\""));
         String substr2 = substr1.substring(substr1.lastIndexOf("\"") + 1);
-        
-        System.out.println(substr2);
 
         int price = (int) Double.parseDouble(substr2);
-        System.out.println(price);
-        
-        futurePrice.setText(Integer.toString(price));
+        return price;
     }
     
     private Parameters getAllParams() {
@@ -243,6 +279,7 @@ public class DisplayController {
         
         Parameters parameters = new Parameters(year, month, region, flatType, 
                 flatArea, flatModel, leaseCommencementYear);
+        parameters.setNormalizedYearMonth((year - 1950) * 12 + month);
         
         return parameters;
     }
@@ -260,5 +297,13 @@ public class DisplayController {
     
     public void addData(Number x, Number y) {
     	series.getData().add(new XYChart.Data<Number, Number>(x, y));
+    	if (series.getData().size() == 1) {
+    		initiateGraph();
+    	}
+    	System.out.println(series.getData().size());
+    	for (int i = 0; i < series.getData().size(); i++) {
+    		System.out.print(series.getData().get(i) + " ");
+    	}
+    	System.out.println();
     }
 }
