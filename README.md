@@ -16,7 +16,7 @@ Prosper managed to secure a *top 6* place among dozens of teams at NUS Data Scie
 
 # Screenshots
 ![Image1](http://i.imgur.com/UyzzCLM.png)
-![Image2](http://i.imgur.com/UyzzCLM.png)
+![Image2](http://i.imgur.com/eWqAGKg.png)
 
 # Team Members
 - Alvian Prasetya
