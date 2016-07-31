@@ -12,7 +12,7 @@ This application runs using Java and you can download it from the [Releases](htt
 
 Prosper was developed in *24 hours* in the National University of Singapore (NUS) Data Science Student Challenge supported by Mircosoft.
 
-Prosper managed to secure a *top 6* place among dozens of teams at NUS Data Science Student Challenge 2016.
+Prosper managed to secure the *5th* place among dozens of teams at NUS Data Science Student Challenge 2016.
 
 # Screenshots
 ![Image1](http://i.imgur.com/UyzzCLM.png)
