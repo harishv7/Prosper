@@ -10,9 +10,9 @@ As a pro analytics feature, Prosper also provides a suggestion on when you shoul
 
 This application runs using Java and you can download it from the [Releases](https://github.com/harishv7/Prosper/releases) page. 
 
-Prosper was developed in *24 hours* in the National University of Singapore (NUS) Data Science Student Challenge supported by Mircosoft.
+Prosper was developed in **24 hours** in the National University of Singapore (NUS) Data Science Student Challenge supported by Mircosoft.
 
-Prosper managed to secure the *5th* place among dozens of teams at NUS Data Science Student Challenge 2016.
+Prosper managed to secure the **5th** place among dozens of teams at NUS Data Science Student Challenge 2016.
 
 # Screenshots
 ![Image1](http://i.imgur.com/UyzzCLM.png)
